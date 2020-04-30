@@ -28,8 +28,8 @@
         }
 
         function addNumbers() {
-            var entry = document.getElementById("entry").value;
-            var entryTwo = document.getElementById("entryTwo").value;
+            var entry = Number(document.getElementById("entry").value);
+            var entryTwo = Number(document.getElementById("entryTwo").value);
             sum = entry + entryTwo;
             document.getElementById("step").innerHTML = sum;
 
