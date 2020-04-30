@@ -11,6 +11,8 @@
     <input id="entryTwo">
     <button type="button" onClick="addNumbers()">Add</button>
     <button type="button" onClick="subtraction()">Subtract</button>
+    <button type="button" onClick="multiply()">Multiply</button>
+
     <div id="step"></div>
 
     <script>
@@ -40,6 +42,13 @@
             var entryTwo = Number(document.getElementById("entryTwo").value);
             difference = entry - entryTwo;
             document.getElementById("step").innerHTML = difference ;   
+        }
+
+        const multiply = () => {
+            var entry = Number(document.getElementById("entry").value);
+            var entryTwo = Number(document.getElementById("entryTwo").value);
+            product = entry * entryTwo;
+            document.getElementById("step").innerHTML = product ; 
         }
      
      
