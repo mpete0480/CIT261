@@ -13,9 +13,17 @@
     <script>
         function writeToDiv() {
          var entry = document.getElementById("entry").value;
-         document.getElementById("step").innerHTML = entry;
+         let sum = add(entry);
+         document.getElementById("step").innerHTML = sum;
         }
      
+        function add(x) {
+            let sum = 0;
+            for (i=1, i <= x, i++){
+                sum += i;
+            }
+            return sum;
+        }
      
      
      
