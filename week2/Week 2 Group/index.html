@@ -13,8 +13,12 @@
     <script>
         function writeToDiv() {
          var entry = document.getElementById("entry").value;
-         let sum = add(entry);
-         document.getElementById("step").innerHTML = sum;
+         if (typeof entry === "number"){
+            let sum = add(entry);
+            document.getElementById("step").innerHTML = sum;
+         } else {
+             alert(`Please enter a valid number`);
+         }
         }
      
         function add(x) {
