@@ -8,6 +8,8 @@
 <body>
     <input id="entry">
     <button type="button" onclick="writeToDiv()">Click Me!</button>
+    <input id="entryTwo">
+    <button type="button" onClick="addNumbers()">Add</button>
     <div id="step"></div>
 
     <script>
@@ -23,6 +25,17 @@
                 sum += i;
             }
             return sum;
+        }
+
+        function addNumbers() {
+            var entry = document.getElementById("entry").value;
+            var entryTwo = document.getElementById("entryTwo").value;
+            sum = entry + entryTwo;
+            document.getElementById("step").innerHTML = sum;
+
+
+
+            
         }
      
      
