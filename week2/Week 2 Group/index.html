@@ -1,4 +1,4 @@
-<!doctype html>
+d<!doctype html>
 <html lang='en'>
 <head>
 <meta charset='utf-8'>
@@ -6,10 +6,16 @@
 <title>Week 2 Group Activity</title>
 </head>
 <body>
-    <input type="text">
-    <button type="button">Click Me!</button>
+    <input type="text" id="entry">
+    <button type="button" onclick="writeToDiv()">Click Me!</button>
+    <div id="step"></div>
 </body>
 <script>
+   function writeToDiv() {
+    let entry = document.getElementbyId("entry").textContent;
+    document.getElementById("step").innerHTML = entry;
+   }
+
 
 
 
