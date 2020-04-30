@@ -10,6 +10,7 @@
     <button type="button" onclick="writeToDiv()">Click Me!</button>
     <input id="entryTwo">
     <button type="button" onClick="addNumbers()">Add</button>
+    <button type="button" onClick="subtraction()">Subtract</button>
     <div id="step"></div>
 
     <script>
@@ -31,11 +32,14 @@
             var entry = Number(document.getElementById("entry").value);
             var entryTwo = Number(document.getElementById("entryTwo").value);
             sum = entry + entryTwo;
-            document.getElementById("step").innerHTML = sum;
+            document.getElementById("step").innerHTML = sum;   
+        }
 
-
-
-            
+        const subtraction = function() {
+            var entry = Number(document.getElementById("entry").value);
+            var entryTwo = Number(document.getElementById("entryTwo").value);
+            difference = entry - entryTwo;
+            document.getElementById("step").innerHTML = difference ;   
         }
      
      
