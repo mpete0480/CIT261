@@ -9,16 +9,18 @@
     <input type="text" id="entry">
     <button type="button" onclick="writeToDiv()">Click Me!</button>
     <div id="step"></div>
+
+    <script>
+        function writeToDiv() {
+         var entry = document.getElementbyId("entry").textContent;
+         document.getElementById("step").innerHTML = entry;
+        }
+     
+     
+     
+     
+     </script>
 </body>
-<script>
-   function writeToDiv() {
-    let entry = document.getElementbyId("entry").textContent;
-    document.getElementById("step").innerHTML = entry;
-   }
 
-
-
-
-</script>
 </html>
 
