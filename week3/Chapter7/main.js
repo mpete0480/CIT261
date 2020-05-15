@@ -20,7 +20,7 @@ const view = {
 };
 
 
-alert('Welcome to Quiz Ninja!');
+
 
 const quiz = [
     { name: "Superman", realName: "Clark Kent" },
@@ -67,5 +67,4 @@ const game = {
     }
 }
 
-game.start(quiz);
 view.start.addEventListener('click', () => game.start(quiz), false);
