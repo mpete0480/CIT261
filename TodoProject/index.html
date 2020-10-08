@@ -15,6 +15,11 @@
             width:600px;
         }
 
+        .addForm {
+            margin:auto;
+            padding-top:100px;
+            width:600px;
+        }
         .todoList{
             list-style-type:none;
         }
@@ -46,7 +51,7 @@
             <div>
                 <ul class="todoList">
                     <li>
-                        <input type="checkbox" class="checkDone"><label class="todoLabel">Todo Element</label><button class="deleteTask">X</button>
+                        <input type="checkbox" class="checkDone" id="todo1"><label for ="todo1" class="todoLabel">Todo Element</label><button class="deleteTask">X</button>
                     </li>
                 </ul>
             </div>
@@ -54,7 +59,13 @@
                 <label id="tasksLeft">Tasks left</label><label id="all">All</label><label id="active">Active</label><label id="completed">Completed</label>  
             </div>
         </div>
-        
+
+            <div class ="addTask">
+                <form name='add' class='addForm'>
+                    <input name='taskInput'>
+                    <button type='submit'>+</button>
+                </form>
+            </div>
 
     </body>
 </html>
