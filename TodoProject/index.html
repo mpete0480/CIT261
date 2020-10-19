@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>ToDo App</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
 
-    </head>
-    <style>
+    <title>ToDo App</title>
+
+</head>
+<style>
         h1 {
             text-align:center;
         }
@@ -43,15 +47,12 @@
         }
 
     </style>
-    
     <body>
         <h1>Todos</h1>
         <div class ="taskBox">
             <div>
-                <ul class="todoList">
-                    <li>
-                        <input type="checkbox" class="checkDone" id="todo1"><label for ="todo1" class="todoLabel">Todo Element</label><button class="deleteTask">X</button>
-                    </li>
+                <ul id="todos" class="todoList">
+                    
                 </ul>
             </div>
             <div class="footer">
@@ -61,10 +62,13 @@
 
             <div class ="addTask">
                 <form name='add' class='addForm'>
-                    <input name='taskInput'>
-                    <button type='submit'>+</button>
+                    <input name='taskInput' id='newEntry'>
+                    <button id="addTodo">+</button>
                 </form>
+                
             </div>
+            <button id="testButton">Test Button</button>
+            <script src="main.js" type="module"></script>
 
     </body>
 </html>
