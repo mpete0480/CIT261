@@ -16,17 +16,19 @@ class Todo{
 renderTodoList = (list, element) =>{ 
     //clear the current list
     element.innerHTML = '';
-    list.forEach(todo =>{
-        const item = document.createElement("li");
-        item.setAttribute('data-name',todo.id);
-        item.innerHTML = `
-        <li>
-            <input type="checkbox" class="checkDone"><label for ="todo1" class="todoLabel">${todo.content}</label><button class="deleteTask" data-name="${todo.id}" id="delete${todo.id}">X</button>
-        </li>`
-        var eselector = `#delete${todo.id}`;
-        element.appendChild(item);
-        onTouch(eselector,this.removeTodo);
-    })
+    if (list != null){
+        list.forEach(todo =>{
+            const item = document.createElement("li");
+            item.setAttribute('data-name',todo.id);
+            item.innerHTML = `
+            <li>
+                <input type="checkbox" class="checkDone"><label for ="todo1" class="todoLabel">${todo.content}</label><button class="deleteTask" data-name="${todo.id}" id="delete${todo.id}">X</button>
+            </li>`
+            var eselector = `#delete${todo.id}`;
+            element.appendChild(item);
+            onTouch(eselector,this.removeTodo);
+        })
+    }
 }
 
     /**
@@ -38,9 +40,11 @@ renderTodoList = (list, element) =>{
     listTodo = () =>{
         //console.log('this fired');
         var listOfTodos = getTodos(this.todoKey);
-        this.renderTodoList(listOfTodos,this.todoElement);
-        const tasksLeft = listOfTodos.length;
-        document.querySelector('#tasksLeft').innerHTML = `Tasks Left ${tasksLeft}`;
+        if (listOfTodos != null) {
+            this.renderTodoList(listOfTodos,this.todoElement);
+            const tasksLeft = listOfTodos.length;
+            document.querySelector('#tasksLeft').innerHTML = `Tasks Left ${tasksLeft}`;
+        }
     }
     /**
      * Add a method to the Todos class called addTodo. 
