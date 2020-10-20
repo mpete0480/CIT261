@@ -1,11 +1,33 @@
-import {qs, onTouch, renderTodoList} from './utilities.js';
+import {qs, onTouch} from './utilities.js';
 import {readFromLS, writeToLS } from './ls.js';
 
 class Todo{
     constructor(){
         this.todoElement = document.querySelector('#todos');
         this.todoKey = 'toDoList';
+        this.listTodo();
     } 
+
+ /**
+ * foreach todo in list, build a li element for the todo, and append it to element
+ * @param  {array} list The list of tasks to render to HTML
+* @param {element} element The DOM element to insert our list elements into.
+ */
+renderTodoList = (list, element) =>{ 
+    //clear the current list
+    element.innerHTML = '';
+    list.forEach(todo =>{
+        const item = document.createElement("li");
+        item.setAttribute('data-name',todo.id);
+        item.innerHTML = `
+        <li>
+            <input type="checkbox" class="checkDone"><label for ="todo1" class="todoLabel">${todo.content}</label><button class="deleteTask" data-name="${todo.id}" id="delete${todo.id}">X</button>
+        </li>`
+        var eselector = `#delete${todo.id}`;
+        element.appendChild(item);
+        onTouch(eselector,this.removeTodo);
+    })
+}
 
     /**
      * Add a method to the Todos class called listTodos().  
@@ -13,10 +35,12 @@ class Todo{
      * It should get called when a todo is added, or removed, and when the Todos class is instantiated.
      */
 
-    listTodo = ()=>{
+    listTodo = () =>{
         //console.log('this fired');
         var listOfTodos = getTodos(this.todoKey);
-        renderTodoList(listOfTodos,this.todoElement);
+        this.renderTodoList(listOfTodos,this.todoElement);
+        const tasksLeft = listOfTodos.length;
+        document.querySelector('#tasksLeft').innerHTML = `Tasks Left ${tasksLeft}`;
     }
     /**
      * Add a method to the Todos class called addTodo. 
@@ -34,7 +58,23 @@ class Todo{
         
     }
 
-    
+    /**
+    * 
+    * @param {string} todoId 
+    */
+    removeTodo = (event) => {
+    var todoElement = event.target;
+    var todoId = todoElement.getAttribute('data-name');
+    var todoList = readFromLS('toDoList');
+    const filteredToDoList = todoList.filter((item) => item.id != todoId);
+    writeToLS(this.todoKey,filteredToDoList);
+    this.listTodo();
+    }
+
+
+
+
+   
 }
 
 var todoList = null;

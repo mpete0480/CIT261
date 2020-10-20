@@ -1,3 +1,5 @@
+import {readFromLS, writeToLS } from './ls.js';
+
 /**
  * do a querySelector lookup
  * @param  {string} selector The selector passed to querySelector
@@ -16,28 +18,12 @@ function qs(selector) {
  */
 
 function onTouch(elementSelector, callback) {
-
+    var theElement = document.querySelector(elementSelector);
+    theElement.addEventListener('click',callback);
  }
 
- /**
- * foreach todo in list, build a li element for the todo, and append it to element
- * @param  {array} list The list of tasks to render to HTML
-* @param {element} element The DOM element to insert our list elements into.
- 
- */
-function renderTodoList(list, element) { 
-    //clear the current list
-    element.innerHTML = '';
-    list.forEach(todo =>{
-        const item = document.createElement("li");
-        item.setAttribute('data-name',todo.id);
-        item.innerHTML = `
-        <li>
-             <input type="checkbox" class="checkDone"><label for ="todo1" class="todoLabel">${todo.content}</label><button class="deleteTask">X</button>
-        </li>`
-        element.appendChild(item);
-        
-    })
-}
 
- export {qs, onTouch, renderTodoList};
+
+ 
+
+ export {qs, onTouch};
