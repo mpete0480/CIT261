@@ -20,13 +20,21 @@ renderTodoList = (list, element) =>{
         list.forEach(todo =>{
             const item = document.createElement("li");
             item.setAttribute('data-name',todo.id);
+            if(todo.completed){
+                var checked = 'checked';
+            } else {
+                var checked = '';
+            }
             item.innerHTML = `
             <li>
-                <input type="checkbox" class="checkDone"><label for ="todo1" class="todoLabel">${todo.content}</label><button class="deleteTask" data-name="${todo.id}" id="delete${todo.id}">X</button>
+                <input type="checkbox" class="checkDone" data-name="${todo.id}" id="complete${todo.id}" ${checked}><label class="todoLabel" data-complete="${todo.completed}">${todo.content}</label><button class="deleteTask" data-name="${todo.id}" id="delete${todo.id}">X</button>
             </li>`
             var eselector = `#delete${todo.id}`;
+            var cselector = `#complete${todo.id}`;
             element.appendChild(item);
             onTouch(eselector,this.removeTodo);
+            onTouch(cselector,this.completeTodo);
+
         })
     }
 }
@@ -73,6 +81,31 @@ renderTodoList = (list, element) =>{
     const filteredToDoList = todoList.filter((item) => item.id != todoId);
     writeToLS(this.todoKey,filteredToDoList);
     this.listTodo();
+    }
+
+    /**
+     * 
+     * @param {*} event 
+     */
+    completeTodo = (event) =>{
+        var todoElement = event.target;
+        var todoId = todoElement.getAttribute('data-name');
+        var todoList = readFromLS('toDoList');
+        var i;
+        for (i = 0; i <= todoList.length-1; i++) {
+            if(todoList[i].id == todoId) {
+                if (todoList[i].completed) {
+                    var complete = false;
+                } else {
+                    var complete = true;
+                }
+
+                todoList.splice(i,1,{ id: todoId, content: todoList[i].content, completed: complete});
+            }
+        }
+        writeToLS(this.todoKey,todoList);
+        this.listTodo();
+        
     }
 
 
