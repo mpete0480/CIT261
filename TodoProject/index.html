@@ -15,20 +15,27 @@
 
         .taskBox {
             margin:auto;
+            width: 40%;
             border-style:solid;
         }
 
         .addForm {
+            padding-top:20px;
             margin:auto;
-            padding-top:100px;
-            width:600px;
+            text-align:center;
         }
+    
+    #newEntry{
+        width:35%;
+        border-style:solid;
+    }
         .todoList{
             list-style-type:none;
         }
 
         .todoList li{
             border-bottom:solid;
+            border-bottom-width:thin;
         }
 
         .todoLabel{
@@ -46,10 +53,27 @@
         }
 
         input.checkDone{
-            width:10px;
-            height:10px;
+            width:20px;
+            height:20px;
         }
+        
+    .footer{
+        text-align:center;
+        font-size:30px;
+    }
+    
+    .buttons{
+        height:40px;
+        width:120px;
+        font-size: 18px;
+        margin-bottom:10px;
+    }
 
+    #footer-buttons{
+        display:inline;
+    }
+    
+    
     </style>
     <body>
         <h1>Todos</h1>
@@ -60,7 +84,12 @@
                 </ul>
             </div>
             <div class="footer">
-                <label id="tasksLeft">Tasks left</label><button id="all">All</button><button id="active">Active</button><button id="completed">Completed</button>  
+                <label id="tasksLeft">Tasks left</label>
+                <div id="footer-buttons">
+                    <button id="all" class="buttons">All</button>
+                    <button id="active" class="buttons">Active</button>
+                    <button id="completed" class="buttons">Completed</button>
+                </div>
             </div>
         </div>
 
