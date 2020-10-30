@@ -2,7 +2,7 @@ const textButton = document.querySelector('#number');
 const apiButton = document.querySelector('#chuck');
 const outputDiv = document.querySelector('#output');
 
-const textURL = `http://numbersapi.com/random`;
+const textURL = `https://numbersapi.com/random`;
 const apiURL = `https://api.chucknorris.io/jokes/random`;
 
 textButton.addEventListener('click',()=> {
