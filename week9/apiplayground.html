@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script>
+function youAreHere(position){
+    console.log(`Latitude:${position.coords.latitude},Longitude: ${position.coords.longitude}`);
+}
+    
+navigator.geolocation.getCurrentPosition(youAreHere);
+    </script>
+<body>
+    
+</body>
+</html>
